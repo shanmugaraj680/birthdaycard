@@ -78,13 +78,13 @@
   <div class="bg-white rounded-lg shadow-lg p-4 max-w-sm text-center" id="card">
    <img alt="A colorful birthday banner with the text 'Happy Birthday' in a playful font" class="w-full rounded-t-lg" height="200" src="https://storage.googleapis.com/a1aa/image/13y5ejjllF3DIqnnP01Wuw4Lb15MNKia2CVCofGLwouofJRoA.jpg" width="600"/>
    <h1 class="text-3xl text-pink-500 mt-4">
-    Happy Birthday, JOHN!
+    Happy Birthday, Shan!
    </h1>
    <p class="text-gray-700 mt-4">
     Wishing you a day filled with love, joy, and all your favorite things. May your year ahead be as wonderful as you are!
    </p>
    <p class="text-gray-500 mt-2">
-    Birthday Date: 01/01/2022
+    Birthday Date: 01/01/2024
    </p>
    <div class="mt-6">
     <img alt="A decorative image of a birthday cake with candles" class="mx-auto" height="100" src="https://storage.googleapis.com/a1aa/image/ymmV93Yo5g7pPxAT1j7YdRxdPcp4sLlGnGmTXzFrb3z5PJCF.jpg" width="100"/>
