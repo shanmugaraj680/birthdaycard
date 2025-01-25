@@ -84,7 +84,7 @@
     Wishing you a day filled with love, joy, and all your favorite things. May your year ahead be as wonderful as you are!
    </p>
    <p class="text-gray-500 mt-2">
-    Birthday Date: 01/01/2024
+    Birthday Date: 30/05/2024
    </p>
    <div class="mt-6">
     <img alt="A decorative image of a birthday cake with candles" class="mx-auto" height="100" src="https://storage.googleapis.com/a1aa/image/ymmV93Yo5g7pPxAT1j7YdRxdPcp4sLlGnGmTXzFrb3z5PJCF.jpg" width="100"/>
