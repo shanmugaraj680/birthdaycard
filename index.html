@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen font-roboto">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-center">Enter Your Details</h1>
+        <form id="birthday-form">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-bold mb-2">Person Name</label>
+                <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-6">
+                <label for="birthday" class="block text-gray-700 font-bold mb-2">Birthday Date</label>
+                <input type="date" id="birthday" name="birthday" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('birthday-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const birthday = document.getElementById('birthday').value;
+
+            // Store the data in local storage
+            localStorage.setItem('personName', name);
+            localStorage.setItem('birthdayDate', birthday);
+
+            // Redirect to details.html
+            window.location.href = 'details.html';
+        });
+    </script>
+</body>
+</html>
