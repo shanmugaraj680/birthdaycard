@@ -1,0 +1,116 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Birthday Card
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;display=swap" rel="stylesheet"/>
+  <style>
+   .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        .falling-shapes {
+            position: absolute;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: fall 3s linear infinite;
+        }
+        .falling-star {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(500px) translateX(100px);
+                opacity: 0;
+            }
+        }
+  </style>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+            fetch('details.html')
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const name = doc.querySelector('p:nth-child(2)').textContent.split(': ')[1];
+                    const date = doc.querySelector('p:nth-child(3)').textContent.split(': ')[1];
+                    document.getElementById('person-name').textContent = name;
+                    document.getElementById('date').textContent = date;
+                });
+
+            const button = document.querySelector('button');
+            const card = document.querySelector('.card');
+            const positiveNotes = [
+                "You are amazing!",
+                "Keep shining!",
+                "You are loved!",
+                "Stay awesome!",
+                "Believe in yourself!",
+                "You make a difference!",
+                "Dream big!",
+                "You are a star!",
+                "Stay positive!",
+                "You are incredible!"
+            ];
+
+            button.addEventListener('click', function() {
+                setInterval(() => {
+                    card.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
+                }, 1000);
+
+                for (let i = 0; i < 50; i++) {
+                    const shape = document.createElement('div');
+                    shape.classList.add('falling-shapes');
+                    if (Math.random() > 0.5) {
+                        shape.classList.add('falling-star');
+                    }
+                    shape.style.left = `${Math.random() * 100}%`;
+                    shape.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                    shape.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    document.body.appendChild(shape);
+                }
+
+                const randomNote = positiveNotes[Math.floor(Math.random() * positiveNotes.length)];
+                document.getElementById('positive-note').textContent = randomNote;
+            });
+        });
+  </script>
+ </head>
+ <body class="bg-gray-100 flex items-center justify-center min-h-screen relative overflow-hidden">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full card">
+   <div class="text-center">
+    <img alt="A colorful birthday cake with candles" class="rounded-lg mb-4" height="200" src="https://storage.googleapis.com/a1aa/image/FwZzef4XLkqQvkepfHl8oiJJZBJlGHuhBduwghhINNVma2jQB.jpg" width="300"/>
+    <h1 class="text-3xl font-pacifico text-pink-500 mb-2">
+     Happy Birthday!
+    </h1>
+    <p class="text-xl text-gray-800 mb-2">
+     Dear <span id="person-name">[Name]</span>,
+    </p>
+    <p class="text-gray-700 mb-4">
+     Wishing you a day filled with love, joy, and all your favorite things.
+    </p>
+    <p class="text-gray-500 mb-4">
+     Date: <span id="date">[Date]</span>
+    </p>
+    <p class="text-lg text-blue-500 mb-4" id="positive-note">
+     <!-- Positive note will appear here -->
+    </p>
+    <button class="bg-pink-500 text-white px-4 py-2 rounded-full hover:bg-pink-600 transition duration-300">
+     <i class="fas fa-gift mr-2">
+     </i>
+     Open the Gift
+    </button>
+   </div>
+  </div>
+ </body>
+</html>
